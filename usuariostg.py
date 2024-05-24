@@ -1,20 +1,16 @@
-# Configurar las credenciales api_id, api_hash, y numero_telefono con las propias
-# Cambiar Nnombre_grupo por el nombre de grupo objetivo
-# Al ejecutarlo segun configuracion del perfil puede pedir codigo 2fa remitido a nuestro perfil de Telegram
-# Creara un directorio profile_pics con las imagenes y un users.html con los datos obtenidos.
-# Instalar la dependencia con pip install telethon
-
 import os
 from telethon.sync import TelegramClient
 from telethon.tl.functions.contacts import GetContactsRequest
 from telethon.tl.functions.messages import GetDialogsRequest
 from telethon.tl.types import InputPeerEmpty
 
-# Sustituye estos valores con los de tu cuenta de telegram y grupo de interes.
+# Sustituye estos valores con los de tu cuenta de telegram.
 api_id = '*******'
 api_hash = '*******'
 numero_telefono = '*******'
-nombre_grupo = '*******'
+
+# Solicitar al usuario que introduzca el nombre del grupo
+nombre_grupo = input("Introduzca nombre del grupo: ")
 
 # Crear y conectar el cliente
 client = TelegramClient('session_name', api_id, api_hash)
@@ -94,3 +90,4 @@ with client:
 
 # Cerrar la sesión del cliente
 client.disconnect()
+
